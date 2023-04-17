@@ -1,0 +1,41 @@
+### ekf config file ###
+bisenet_ros_node:
+    ros__parameters:
+    
+        ## define subscribe, publish topic names and frame name
+        depth_caminfo_topic_name: camera/depth/camera_info
+        rgb_image_topic_name: camera/color/image_raw
+        depth_image_topic_name: camera/depth/image_rect_raw
+        aligned_depth_topic_name: camera/aligned_depth_to_color/image_raw
+        result_topic_name: net/result
+        cost_image_topic_name: net/cost_image
+        sync_depth_topic_name: net/sync_depth/image_rect_raw
+        cost_pcl_topic_name: net/pcl/cost
+        #tf_prefix: 
+        pcl_frame: camera_depth_optical_frame
+        
+        ##define manual camera info 
+        ##if manual_camera_info is false, the camera info is from camera_info topic
+        ##if manual_camera_info is true, the camera info is from below parameter sets
+        manual_camera_info: false
+        depth_scale: 0.001
+        focal_len_x: 385
+        focal_len_y: 385
+        principle_x: 320
+        principle_y: 240
+        
+        ## define bisenet parameter sets
+        unit_test_enable: false  ## if unit_test_enable is true, the input image is written by local directory
+        class_num: 25
+        img_height_net_input: 128
+        img_width_net_input: 192
+        gpu_available: false ## if gpu_available is true, gpu model is loaded. if gpu_available is false, cpu model is loaded
+        is_jit_model_cpu: true ## if is_jit_model_cpu is true, cpu model with jit script is loaded, if is_jit_model_cpu is false, cpu model is loaded
+        num_of_gpu: 2
+        jit_script_model_path: /home/artlab/ros2_ws/src/bisenet_ros/bisenet_ros/trained_model/bisenetv2_jit_calimg_1500.pt
+        model_path: /home/artlab/ros2_ws/src/bisenet_ros/bisenet_ros/trained_model/bisenetv2_train_epoch_200.pth
+        colors_path: /home/artlab/ros2_ws/src/bisenet_ros/bisenet_ros/label/rugd/rugd_colors.txt
+        names_path: /home/artlab/ros2_ws/src/bisenet_ros/bisenet_ros/label/rugd/rugd_names.txt
+        cost_low: 5
+        cost_med: 128
+        cost_high: 255
