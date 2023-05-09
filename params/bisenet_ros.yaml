@@ -6,7 +6,7 @@ bisenet_ros_node:
         depth_caminfo_topic_name: camera/depth/camera_info
         rgb_image_topic_name: camera/color/image_raw
         depth_image_topic_name: camera/depth/image_rect_raw
-        aligned_depth_topic_name: camera/aligned_depth_to_color/image_raw
+        aligned_depth_topic_name: camera/depth/image_rect_raw
         result_topic_name: net/result
         cost_image_topic_name: net/cost_image
         sync_depth_topic_name: net/sync_depth/image_rect_raw
@@ -17,7 +17,7 @@ bisenet_ros_node:
         ##define manual camera info 
         ##if manual_camera_info is false, the camera info is from camera_info topic
         ##if manual_camera_info is true, the camera info is from below parameter sets
-        manual_camera_info: false
+        manual_camera_info: true
         depth_scale: 0.001
         focal_len_x: 385
         focal_len_y: 385

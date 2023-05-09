@@ -416,11 +416,11 @@ class BiseNetROS(Node):
         #pcl_data.append(pcl_z)
         #pcl_data.append(cost_val)
     
-    print("pcl_data list length : ", len(pcl_data))    
+    #print("pcl_data list length : ", len(pcl_data))    
     pcl_data = np.array(pcl_data, dtype='float32')
-    print("pcl_data np shape : ", pcl_data.shape, "pcl_data np type : ", pcl_data.dtype) 
+    #print("pcl_data np shape : ", pcl_data.shape, "pcl_data np type : ", pcl_data.dtype) 
     flatten_pcl_data = pcl_data.astype(np.float32).tobytes()
-    print("flatten_pcl_data length : ", len(flatten_pcl_data))
+    #print("flatten_pcl_data length : ", len(flatten_pcl_data))
     pcl_dtype = PointField.FLOAT32
     elemsize = np.dtype(np.float32).itemsize # return the number of bytes for a single element
     
